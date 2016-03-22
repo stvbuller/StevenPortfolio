@@ -95,6 +95,7 @@ app.post("/login", function(req, res) {
   }
 });
 
+//posts the contact me form information to mongodb
 app.post('/contactMe', function(req, res) {
   console.log(req.body);
   var contact = new Contact({

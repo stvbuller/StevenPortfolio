@@ -32,6 +32,7 @@ app.use(session({
 }));
 
 var Contact = require("./models/contact");
+var User = require("./models/user");
 
 //serves the image, jscript, and css resoure files
 app.use(express.static(__dirname + '/public/images'));
@@ -93,6 +94,29 @@ app.post("/login", function(req, res) {
     req.session.isAuthenticated = false;
     res.redirect('/login');
   }
+});
+
+
+
+//posts the create account form information to mongodb
+app.post('/createAccount', function(req, res) {
+  console.log(req.body);
+  var user = new User({
+    email: req.body.email,
+    password: req.body.password
+  });
+
+  user.save(function(err) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    } else {
+      User.find({}).then(function(dbUser) {
+        //console.log(" contact me" + dbUser);
+        res.json(dbUser);
+      });
+    }
+  });
 });
 
 //posts the contact me form information to mongodb

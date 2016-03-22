@@ -2,7 +2,7 @@ angular.module('portfolioApp')
 .controller('portfolioController', function($scope, $http) {
   //submits the information from the contact me form
   $scope.submitContactMe = function() {
-    console.log($scope.contactFirstName);
+    //console.log($scope.contactFirstName);
     $http.post('/contactMe', {
       firstName: $scope.contactFirstName,
       lastName: $scope.contactLastName,
@@ -13,5 +13,16 @@ angular.module('portfolioApp')
       console.log(contactMeResponse.data);
     });
   }
+
+  $scope.createAccount = function() {
+    console.log($scope.createEmail);
+    $http.post('createAccount', {
+      email: $scope.createEmail,
+      password: $scope.createPassword })
+    .then(function(accountResponse) {
+      console.log(accountResponse);
+    });
+  }
+
 
 });

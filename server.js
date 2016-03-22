@@ -1,10 +1,18 @@
+//setup express
 var express = require('express');
-var bodyParser = require('body-parser');
-var session = require('express-session');
 var app = express();
+//setup body parser
+var bodyParser = require('body-parser');
+//setup body-parser
+var session = require('express-session');
+//setup middleware
 var middleware = require('./public/jscripts/middleware.js');
+//setup logger
 var logger = require('morgan');
+//setup mongoose
 var mongoose = require('mongoose');
+
+//mongoose connestion
 var db = 'mongodb://localhost/contacts_db';
 mongoose.connect(db);
 
@@ -31,6 +39,7 @@ app.use(express.static(__dirname + '/public/jscripts'));
 app.use(express.static(__dirname + '/public/css_sheets'));
 app.use(express.static(__dirname + '/public/cssClickGame'));
 
+//routes
 app.get('/', function(req, res) {
   res.sendFile(process.cwd() + "/views/home.html");
 });
@@ -96,7 +105,15 @@ app.post('/contactMe', function(req, res) {
   });
 
   contact.save(function(err) {
-    if (err) return (err);
+    if (err) {
+      console.log(err);
+      res.send(err);
+    } else {
+      Contact.find({}).then(function(dbContact) {
+        //console.log(" contact me" + dbContact);
+        res.json(dbContact);
+      });
+    }
   });
 });
 

@@ -82,8 +82,9 @@ app.get('/clickGame', function(req, res) {
   res.sendFile(process.cwd() + "/views/clickGame.html");
 });
 
+//** this route does not work with angular
 app.post("/login", function(req, res) {
-  if (req.body.email1 === "b@b.com" && req.body.password1 === "b") {
+  if (req.body.email === "b@b.com" && req.body.password === "b") {
     req.session.isAuthenticated = true;
     var loggedInTime = parseInt(req.body.loginTime);
     if (loggedInTime > 0) {
@@ -96,6 +97,22 @@ app.post("/login", function(req, res) {
   }
 });
 
+//login using angular and mongodb
+// app.post("/login", function(req, res) {
+
+//   //check the database for the user
+//   User.findOne({email: req.body.email}).exec(function(err, user1) {
+//     if (err) {
+//       console.log(err);
+//       res.send(err);
+//     } else {
+//       console.log(user1);
+//       if (user1.email === req.body.email) {
+//         console.log("user exsists")
+//       }
+//     }
+//   });
+// });
 
 
 //posts the create account form information to mongodb
@@ -106,17 +123,31 @@ app.post('/createAccount', function(req, res) {
     password: req.body.password
   });
 
-  user.save(function(err) {
+
+  User.findOne({email: req.body.email}).exec(function(err, user1) {
     if (err) {
       console.log(err);
       res.send(err);
     } else {
-      User.find({}).then(function(dbUser) {
-        //console.log(" contact me" + dbUser);
-        res.json(dbUser);
-      });
+      if (user1 === null) {
+        user.save();
+      } else {
+        console.log("user exsists")
+      }
     }
   });
+
+  // user.save(function(err) {
+  //   if (err) {
+  //     console.log(err);
+  //     res.send(err);
+  //   } else {
+  //     User.find({}).then(function(dbUser) {
+  //       //console.log(" contact me" + dbUser);
+  //       res.json(dbUser);
+  //     });
+  //   }
+  // });
 });
 
 //posts the contact me form information to mongodb

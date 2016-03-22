@@ -15,14 +15,24 @@ angular.module('portfolioApp')
   }
 
   $scope.createAccount = function() {
-    console.log($scope.createEmail);
-    $http.post('createAccount', {
+    //console.log($scope.createEmail);
+    $http.post('/createAccount', {
       email: $scope.createEmail,
       password: $scope.createPassword })
     .then(function(accountResponse) {
       console.log(accountResponse);
     });
   }
+
+  // $scope.loginUser = function() {
+  //   //console.log($scope.createEmail);
+  //   $http.post('/login', {
+  //     email: $scope.createEmail,
+  //     password: $scope.createPassword })
+  //   .then(function(accountResponse) {
+  //     console.log(accountResponse);
+  //   });
+  // }
 
 
 });

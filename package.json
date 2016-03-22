@@ -1,0 +1,28 @@
+{
+  "name": "stevenportfolio",
+  "version": "1.0.0",
+  "description": "Portfolio updated using Angular.js and MongoDB",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mongoose": "^4.4.8",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stvbuller/StevenPortfolio.git"
+  },
+  "author": "steven buller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stvbuller/StevenPortfolio/issues"
+  },
+  "homepage": "https://github.com/stvbuller/StevenPortfolio#readme"
+}

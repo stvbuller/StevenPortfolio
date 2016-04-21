@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="portfolioApp">
+<head>
+  <meta charset="utf-8">
+  <title>Steven's Angular Portfolio</title>
+  <!-- angular -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+  <!-- bootstrap -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/cerulean/bootstrap.min.css">
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/base.css">
+  <base href="/" />
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Steven Buller Index</a>
+      </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/repos">Repos</a></li>
+          <li><a href="/blog">My Blog</a></li>
+          <li><a href="/formContactMe">Contact</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+    </div><!-- /.container-fluid for navbar-->
+  </nav>
+
+  <ui-view></ui-view>
+
+
+  <script type="text/javascript" src="/jscripts/appRouter.js"></script>
+  <!-- <script type="text/javascript" src="app.js"></script> -->
+
+</body>
+</html>

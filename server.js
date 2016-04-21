@@ -12,7 +12,7 @@ var logger = require('morgan');
 //setup mongoose
 var mongoose = require('mongoose');
 
-//mongoose connestion
+//mongoose connection
 var db = 'mongodb://localhost/contacts_db';
 mongoose.connect(db);
 
@@ -43,9 +43,9 @@ app.use(express.static(__dirname + '/public/views'));
 app.use(express.static('public'));
 
 //routes using angular ng router
-app.get('*', function(req, res) {
+app.get('/*', function(req, res) {
   //res.sendFile(process.cwd() + '/views/index.html');
-  res.sendFile(process.cwd() + '/views/index.html');
+  res.sendFile(process.cwd() + '/index.html');
 });
 
 //routes

@@ -1,37 +1,25 @@
-angular.module('RoutingApp', ['ngRoute'])
-  .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-    $routeProvider
-    .when('/home', {
-      templateUrl: 'home.html'
+angular.module('portfolioApp', ['ui.router'])
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
+    $urlRouterProvider.otherwise('/');
+    $stateProvider
+    .state('home', {
+      url: '/',
+        templateUrl: '/views/home.html'
     })
 
-    .when('/projects', {
-      templateUrl: 'projects.html'
+    .state('projects', {
+      url: '/projects',
+      templateUrl: '/views/projects.html'
     })
 
-    .when('/repos', {
-      templateUrl: 'repos.html'
+    .state('/repos', {
+      templateUrl: '/views/repos.html'
     })
 
-    .when('/blog', {
-      templateUrl: 'blog.html'
+    .state('/clickGame', {
+      templateUrl: '/views/clickGame.html'
     })
 
-    .when('/formContactMe', {
-      templateUrl: 'formContactMe.html'
-    })
-
-    .when('/login', {
-      templateUrl: 'login.html'
-    })
-
-    .when('/clickGame', {
-      templateUrl: 'clickGame.html'
-    })
-
-    .otherwise({
-      redirectTo: '/home'
-    });
 
     $locationProvider.html5Mode(true);
   }]);

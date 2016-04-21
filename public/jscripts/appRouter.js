@@ -9,14 +9,16 @@ angular.module('portfolioApp', ['ui.router'])
 
     .state('projects', {
       url: '/projects',
-      templateUrl: '/views/projects.html'
+        templateUrl: '/views/projects.html'
     })
 
-    .state('/repos', {
-      templateUrl: '/views/repos.html'
+    .state('repos', {
+      url: '/repos',
+        templateUrl: '/views/repos.html'
     })
 
-    .state('/clickGame', {
+    .state('clickGame', {
+      url: '/clickGame',
       templateUrl: '/views/clickGame.html'
     })
 

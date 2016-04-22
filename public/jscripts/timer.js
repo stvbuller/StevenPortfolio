@@ -3,6 +3,7 @@ var timerInterval;
 var startStopBtn = document.getElementById("startStopBtn");
 var checkTimer;
 
+
 setTimeout(function(){
   if(secondsCounter === 0) {
     clearInterval(timerInterval);
@@ -11,7 +12,7 @@ setTimeout(function(){
   }
 }, 500);
 
-function incrementTimer() { 
+function incrementTimer() {
   secondsCounter++;
  }
 
@@ -44,13 +45,13 @@ function checkSecondsCounter() {
   if (secondsCounter >= 20 ) {
     startStopBtn.innerHTML = "Start";
     startStopBtn.setAttribute("data-state", "start");
-    clearInterval(timerInterval); 
+    clearInterval(timerInterval);
     clearInterval(checkTimer);
     //alert("Time is up " + secondsCounter + " seconds, you clicked " + imageCounter + " images");
     $("#buttonsClicked").html(imageCounter);
     $("#endGameModel").modal('show');
 
-  } 
+  }
 }
 
 startStopBtn.addEventListener("click", toggleStartStop);

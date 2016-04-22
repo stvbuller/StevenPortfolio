@@ -4,17 +4,17 @@ angular.module('portfolioApp', ['ui.router'])
     $stateProvider
     .state('home', {
       url: '/',
-        templateUrl: '/views/home.html'
+        templateUrl: '/views/home-partial.html'
     })
 
     .state('projects', {
       url: '/projects',
-        templateUrl: '/views/projects.html'
+        templateUrl: '/views/projects-partial.html'
     })
 
     .state('repos', {
       url: '/repos',
-        templateUrl: '/views/repos.html'
+        templateUrl: '/views/repos-partial.html'
     })
 
     .state('clickGame', {

@@ -1,5 +1,5 @@
 # StevenPortfolio
-Portfolio updated using Angular.js and MongoDB
+Portfolio is being updated using Angular.js and MongoDB
 
 #TECHNOLOGIES:
 HTML5, CSS, Bootstrap, Javascript, jQuery, Node.js,

@@ -2,8 +2,6 @@ var imagesClassmates = document.getElementsByTagName('img');
 var imagesClicked = [];
 var imageCounter = 0;
 
-console.log("countImages loaded");
-
 function gameStarts() {
   if(startStopBtn.getAttribute("data-state") === "stop"){
     if (this.getAttribute("data-state") === "notclicked") {
